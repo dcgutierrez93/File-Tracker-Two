@@ -17,41 +17,17 @@
 </head>
 
 <body>
-    <form data-bind="sumbit: addFolder">
-        Folder Name: <input data-bind="value: newFolderText" />
-        <button type="submit" class="btn btn-primary">Add</button>
+    <form data-bind="submit: addItem">
+        New item:
+        <input data-bind='value: itemToAdd, valueUpdate: "afterkeydown"' />
+        <button type="submit" data-bind="enable: itemToAdd().length > 0">Add</button>
+
     </form>
-    <ul data-bind="foreach: folders, visible: folders().length > 0">
-        <li class="folder">
-            <a class="folder-text" href="#" data-bind="value: title"></a>
-        </li>
-    </ul>
-    <!-- <div class="form-wrapper">
-        <div class="well" data-bind="fileDrag: fileData">
-            <div class="form-group row">
-                <div class="col-md-6">
-                    <img style="height: 125px;" class="img-rounded  thumb" data-bind="attr: { src: fileData().dataURL }, visible: fileData().dataURL">
-                    <div data-bind="ifnot: fileData().dataURL">
-                        <label class="drag-label">Drag file here</label>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <input type="file" data-bind="fileInput: fileData, customFileInput: {
-              buttonClass: 'btn btn-success',
-              fileNameClass: 'disabled form-control',
-              onClear: onClear,
-            }" accept="image/*">
-                </div>
-            </div>
-            <div style="text-align: right;">
-            <button class="btn btn-upload" type="submit">Upload</button>
-            </div>
-        </div>
-    </div> -->
 
 
 
-
+    <p>Your items:</p>
+    <select multiple="multiple" width="50" data-bind="options: items"> </select>
 
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
