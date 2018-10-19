@@ -1,3 +1,21 @@
+function Folder(data) {
+    this.title = ko.observable(data.title);
+}
+
+function TaskListViewModel() {
+    // Data
+    var self = this;
+    self.folders = ko.observableArray([]);
+
+    // Operators
+    self.addFolder = function() {
+        self.folders.push(new Folder({ title: this.newFolderText() });
+        self.newFolderText("");
+    };
+}
+
+ko.applyBindings(new TaskListViewModel());
+
 $(function(){
   var viewModel = {};
   viewModel.fileData = ko.observable({
