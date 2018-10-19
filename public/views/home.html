@@ -32,27 +32,28 @@
                         <li class="nav-item">
                             <!-- <button class="btn add-folder" data-bind="click: headerModel.createFolder" type="button" name="button"><i class="fas fa-folder-plus" style="padding-right: 0.25em;"></i>New Folder</button> -->
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="#">Pricing</a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <form data-bind="submit: addFolder">
-            Add Folder: <input data-bind="value: newFolderText" placeholder="Name Your Folder">
-            <button type="submit">Add</button>
-        </form>
+    <div class="main">
+        <div class="container">
+        </div>
     </div>
     <!-- Side Bar -->
     <div class="sidenav">
-        <ul data-bind="foreach: folders, visible: folders().length > 0">
-            <li class="folder-fold">
-                <a href="#" data-bind="value: title"></a>
-            </li>
-        </ul>
+        <div class="sidenav-content">
+            <p class="h6">Current Directory:</p>
+            <ul class="folders">
+                <li class="folder">
+
+                </li>
+            </ul>
+        </div>
     </div>
 
 

@@ -1,33 +1,21 @@
-function Folder(data) {
-    this.title = ko.observable(data.title);
-}
-
-function AppViewModel() {
-    var self = this;
-    self.folders = ko.observableArray([]);
-    self.newFolderText = ko.observable();
-
-    self.addFolder = function() {
-        self.folders.push(new Folder({
-            title: this.newFolderText()
-        }));
-        self.newFolderText("");
-    };
-
-    // self.save = function() {
-    //     $.ajax("/tasks", {
-    //        data: ko.toJSON({ tasks: self.tasks }),
-    //        type: "post", contentType: "application/json",
-    //        success: function(result) { alert(result) }
-    //    });
-    // };
-    //
-    // $.getJSON("/folder", function(allData) {
-    //     var mappedTasks = $.map(allData, function(item) { return new Folder(item) });
-    //     self.tasks(mappedTasks);
-    // });
-
-}
-
-// Activates knockout.js
-ko.applyBindings(new AppViewModel());
+$(function(){
+  var viewModel = {};
+  viewModel.fileData = ko.observable({
+    dataURL: ko.observable(),
+    // base64String: ko.observable(),
+  });
+  viewModel.multiFileData = ko.observable({
+    dataURLArray: ko.observableArray(),
+  });
+  viewModel.onClear = function(fileData){
+    if(confirm('Are you sure?')){
+      fileData.clear && fileData.clear();
+    }
+  };
+  viewModel.debug = function(){
+    window.viewModel = viewModel;
+    console.log(ko.toJSON(viewModel));
+    debugger;
+  };
+  ko.applyBindings(viewModel);
+});
