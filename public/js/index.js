@@ -9,7 +9,7 @@ function TaskListViewModel() {
 
     // Operators
     self.addFolder = function() {
-        self.folders.push(new Folder({ title: this.newFolderText() });
+        self.folders.push(new Folder({ title: this.newFolderText() }));
         self.newFolderText("");
     };
 }
