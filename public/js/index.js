@@ -19,3 +19,7 @@ $(function(){
   };
   ko.applyBindings(viewModel);
 });
+
+$(function () {
+  $('[data-toggle="popover"]').popover('show');
+});
